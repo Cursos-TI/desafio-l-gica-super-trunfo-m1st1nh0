@@ -86,27 +86,28 @@ int main()
     printf("Carta B: \nEstado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação: %lu de habitantes\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nNúmero de Pontos Turísticos: %d\nDensidade Populacional: %.2f hab/km²\nPIB per Capita: %.2f reais\n\n\n\n\n\n", estadoB, codigoB, nome_cidadeB, populacaoB, areaB, pibB, qtd_pontos_turisticosB, densidade_demograficaB, pib_per_capitaB);
 
     // Menu de seleção e duelo
-    int escolhaMenu;
+    int escolhaMenu1, escolhaMenu2;
+    int resultado1, resultado2;
 
     printf("HORA DO DUELO!\n\n");
 
     // Menu
     printf("Qual característica vamos comparar?");
     printf("1. População\n2. Área\n3. PIB\n4. Número de pontos turísticos\n5. Densidade demográfica\nDigite sua escolha: ");
-    scanf("%d", &escolhaMenu);
+    scanf("%d", &escolhaMenu1);
     // Duelos e resultados
-
-    switch (escolhaMenu)
+    switch (escolhaMenu1)
     {
     case 1:
         printf("%s X %s\n", nome_cidadeA, nome_cidadeB);
         printf("Comparando: População\n");
         printf("%s tem %lu habitantes e %s tem %lu habitantes\n", nome_cidadeA, populacaoA, nome_cidadeB, populacaoB);
-        if (populacaoA > populacaoB)
+        resultado1 = (populacaoA > populacaoB) ? 1 : 0;
+        if (resultado1 == 1)
         {
             printf("%s tem mais habitantes e venceu o duelo!\n", nome_cidadeA);
         }
-        else if (populacaoA < populacaoB)
+        else if (resultado1 == 0)
         {
             printf("%s tem mais habitanates e venceu o duelo!\n", nome_cidadeB);
         }
@@ -120,11 +121,12 @@ int main()
         printf("%s X %s\n", nome_cidadeA, nome_cidadeB);
         printf("Comparando: Área\n");
         printf("%s tem %.2f km² e %s tem %.2f km²\n", nome_cidadeA, areaA, nome_cidadeB, areaB);
-        if (areaA > areaB)
+        resultado1 = (areaA > areaB) ? 1 : 0;
+        if (resultado1 == 1)
         {
             printf("%s é maior e venceu o duelo!\n", nome_cidadeA);
         }
-        else if (areaA < areaB)
+        else if (resultado1 == 0)
         {
             printf("%s é maior e venceu o duelo!\n", nome_cidadeB);
         }
@@ -138,11 +140,12 @@ int main()
         printf("%s X %s\n", nome_cidadeA, nome_cidadeB);
         printf("Comparando: PIB\n");
         printf("%s tem %.2f de PIB e %s tem %.2f de PIB\n", nome_cidadeA, pibA, nome_cidadeB, pibB);
-        if (pibA > pibB)
+        resultado1 = (pibA > pibB) ? 1 : 0;
+        if (resultado1 == 1)
         {
             printf("%s tem um PIB maior e venceu o duelo!\n", nome_cidadeA);
         }
-        else if (pibA < pibB)
+        else if (resultado1 == 0)
         {
             printf("%s tem um PIB maior e venceu o duelo!\n", nome_cidadeB);
         }
@@ -156,11 +159,12 @@ int main()
         printf("%s X %s\n", nome_cidadeA, nome_cidadeB);
         printf("Comparando: Quantidade de pontos turísticos\n");
         printf("%s tem %d pontos turísticos e %s tem %d pontos turísticos\n", nome_cidadeA, qtd_pontos_turisticosA, nome_cidadeB, qtd_pontos_turisticosB);
-        if (qtd_pontos_turisticosA > qtd_pontos_turisticosB)
+        resultado1 = (qtd_pontos_turisticosA > qtd_pontos_turisticosB) ? 1 : 0;
+        if (resultado1 == 1)
         {
             printf("%s tem mais pontos turísticos e venceu o duelo!\n", nome_cidadeA);
         }
-        else if (qtd_pontos_turisticosA < qtd_pontos_turisticosB)
+        else if (resultado1 == 0)
         {
             printf("%s tem mais pontos turísticos e venceu o duelo!\n", nome_cidadeB);
         }
@@ -174,11 +178,12 @@ int main()
         printf("%s X %s\n", nome_cidadeA, nome_cidadeB);
         printf("Comparando: Densidade Demográfica\n");
         printf("%s tem %.2f habitantes por km² e %s tem %.2f habitantes por km²\n", nome_cidadeA, densidade_demograficaA, nome_cidadeB, densidade_demograficaB);
-        if (densidade_demograficaA > densidade_demograficaB)
+        resultado1 = (densidade_demograficaA < densidade_demograficaB) ? 1 : 0;
+        if (resultado1 == 0)
         {
             printf("%s tem menos habitanates por km² e venceu o duelo!\n", nome_cidadeB);
         }
-        else if (densidade_demograficaA < densidade_demograficaB)
+        else if (resultado1 == 1)
         {
             printf("%s tem menos habitanates por km² e venceu o duelo!\n", nome_cidadeA);
         }
@@ -192,6 +197,141 @@ int main()
         printf("Por favor digite um numero válido");
         break;
     }
+    // Menu
+    printf("Qual característica vamos comparar?");
+    if (escolhaMenu1 != 1)
+        printf("1. População\n");
+    if (escolhaMenu1 != 2)
+        printf("2. Área\n");
+    if (escolhaMenu1 != 3)
+        printf("3. PIB\n");
+    if (escolhaMenu1 != 4)
+        printf("4. Número de pontos turísticos\n");
+    if (escolhaMenu1 != 5)
+        printf("5. Densidade demográfica\n");
+    scanf("%d", &escolhaMenu2);
+    // Duelos e resultados
+    if (escolhaMenu1 == escolhaMenu2)
+    {
+        printf("Você deve escolher comparações diferentes!");
+    }
+    else
+    {
+        switch (escolhaMenu2)
+        {
+        case 1:
+            printf("%s X %s\n", nome_cidadeA, nome_cidadeB);
+            printf("Comparando: População\n");
+            printf("%s tem %lu habitantes e %s tem %lu habitantes\n", nome_cidadeA, populacaoA, nome_cidadeB, populacaoB);
+            resultado2 = (populacaoA > populacaoB) ? 1 : 0;
+            if (resultado2 == 1)
+            {
+                printf("%s tem mais habitantes e venceu o duelo!\n", nome_cidadeA);
+            }
+            else if (resultado2 == 0)
+            {
+                printf("%s tem mais habitanates e venceu o duelo!\n", nome_cidadeB);
+            }
+            else
+            {
 
-    return 0;
+                printf("Tivemos um empate!");
+            }
+            break;
+        case 2:
+            printf("%s X %s\n", nome_cidadeA, nome_cidadeB);
+            printf("Comparando: Área\n");
+            printf("%s tem %.2f km² e %s tem %.2f km²\n", nome_cidadeA, areaA, nome_cidadeB, areaB);
+            resultado2 = (areaA > areaB) ? 1 : 0;
+            if (resultado2 == 1)
+            {
+                printf("%s é maior e venceu o duelo!\n", nome_cidadeA);
+            }
+            else if (resultado2 == 0)
+            {
+                printf("%s é maior e venceu o duelo!\n", nome_cidadeB);
+            }
+            else
+            {
+
+                printf("Tivemos um empate!");
+            }
+            break;
+        case 3:
+            printf("%s X %s\n", nome_cidadeA, nome_cidadeB);
+            printf("Comparando: PIB\n");
+            printf("%s tem %.2f de PIB e %s tem %.2f de PIB\n", nome_cidadeA, pibA, nome_cidadeB, pibB);
+            resultado2 = (pibA > pibB) ? 1 : 0;
+            if (resultado2 == 1)
+            {
+                printf("%s tem um PIB maior e venceu o duelo!\n", nome_cidadeA);
+            }
+            else if (resultado2 == 0)
+            {
+                printf("%s tem um PIB maior e venceu o duelo!\n", nome_cidadeB);
+            }
+            else
+            {
+
+                printf("Tivemos um empate!");
+            }
+            break;
+        case 4:
+            printf("%s X %s\n", nome_cidadeA, nome_cidadeB);
+            printf("Comparando: Quantidade de pontos turísticos\n");
+            printf("%s tem %d pontos turísticos e %s tem %d pontos turísticos\n", nome_cidadeA, qtd_pontos_turisticosA, nome_cidadeB, qtd_pontos_turisticosB);
+            resultado2 = (qtd_pontos_turisticosA > qtd_pontos_turisticosB) ? 1 : 0;
+            if (resultado2 == 1)
+            {
+                printf("%s tem mais pontos turísticos e venceu o duelo!\n", nome_cidadeA);
+            }
+            else if (resultado2 == 0)
+            {
+                printf("%s tem mais pontos turísticos e venceu o duelo!\n", nome_cidadeB);
+            }
+            else
+            {
+
+                printf("Tivemos um empate!");
+            }
+            break;
+        case 5:
+            printf("%s X %s\n", nome_cidadeA, nome_cidadeB);
+            printf("Comparando: Densidade Demográfica\n");
+            printf("%s tem %.2f habitantes por km² e %s tem %.2f habitantes por km²\n", nome_cidadeA, densidade_demograficaA, nome_cidadeB, densidade_demograficaB);
+            resultado2 = (densidade_demograficaA < densidade_demograficaB) ? 1 : 0;
+            if (resultado2 == 0)
+            {
+                printf("%s tem menos habitanates por km² e venceu o duelo!\n", nome_cidadeB);
+            }
+            else if (resultado2 == 1)
+            {
+                printf("%s tem menos habitanates por km² e venceu o duelo!\n", nome_cidadeA);
+            }
+            else
+            {
+
+                printf("Tivemos um empate!");
+            }
+            break;
+        default:
+            printf("Por favor digite um numero válido");
+            break;
+        }
+
+        if (resultado1 == 1 && resultado2 == 1)
+        {
+            printf("Carta A venceu!\n");
+        }
+        else if (resultado1 == 0 && resultado2 == 0)
+        {
+            printf("Carta B venceu!\n");
+        }
+        else
+        {
+            printf("Empate!\n");
+        }
+
+        return 0;
+    }
 }
